@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web Design Stuffs</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-css-playground'>
+		<html>
+			<title>test</title>
+				CODE
+			<body>
+				<h1>I'm a H1 heading</h1>
+				<h2>I'm a H2 heading</h2>
+				<p>Pargraph of text &lt;p&gt;</p>
+				<div class='stuff'>&lt;div&gt; with class "stuff"</div>
+				<div id='my-div'>&lt;div&gt; with id "my-div"</div>
+			</body>
+		</html>
+	</script>
+
+
+	<script type='text/coderdeck' id='coderdeck-style-example'>
+		<html>
+			<title>test</title>
+			<style>
+				CODE
+			</style>
+			<body>
+				<h1>I'm a H1 heading</h1>
+				<h2>I'm a H2 heading</h2>
+				<h3>Pargraph of text &lt;p&gt; here</p>
+				<div class='stuff'>I'm a div &lt;div&gt; with class "stuff"</div>
+				<div id='my-div'>I'm a &lt;div&gt; with id "my-div"</div>
+			</body>
+		</html>
+	</script> 	
+
+
+<!-- Create any number of elements with class slide within the container -->
+<article class='slide slide-subhead'>
+<h1>Web Design: <br/>Grids, Tools, Tips</h1>
+<h2>Week 7</h2>
+<p>CDGD304 - Spring 2013<br/>
+ <a href='http://marthar.github.com/webfall-2012/7.html'>http://marthar.github.com/webspring-2013/7.html</a></p>
+</article>
+	
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+			<h3>Review Homework</h3>
+		</li>
+		<li class="slide">
+			<h3>Hierarchy</h3>
+		</li>
+		<li class="slide">
+			<h3>Layout</h3>
+		</li>
+		<li class="slide">
+			<h3>Color &amp; Graphics</h3>
+		</li>
+		<li class="slide">
+			<h3>Grids</h3>
+		</li>
+		<li class="slide">
+			<h3>Tools of the Trade &amp; Pixel Perfect Design</h3>
+		</li>
+		<li class="slide">
+			<h3>Trends</h3>
+		</li>
+	</ol>
+</article>
+
+
+<article class='slide slide-accent'>
+<h1>Homework</h1>
+</article>
+
+<article class="slide slide-list">
+	<h2>Homework Review</h2>
+	<script>
+(function($){
+ 
+    $.fn.shuffle = function() {
+ 
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+ 
+        return $(shuffled);
+ 
+    };
+ 
+})(jQuery);
+
+function shuffleHomework(amt) {
+	if(amt <= 0) return;
+	$("#homework li").shuffle();
+	setTimeout(function() { shuffleHomework(amt - 1); },200);
+}
+
+	</script>
+	<a href='javascript:shuffleHomework(10);'>Shuffle</a>
+	<ul id='homework'>
+		<li><a href='http://carljbowman.github.com/homework/index.html'>Carl Bowman</a></li>
+		<li><a href='http://jlfarnham.github.com/homework/index.html'>Jules Farnham</a></li>
+		<li><a href='http://brendongouveia.github.com/homework/index.html'>Brendon Gouveia</a></li>
+		<li><a href='http://zkgray.github.com/homework/index.html'>Zoya Gray</a></li>
+		<li><a href='http://carsonhalstead.github.com/homework/index.html'>Carson Halstead</a></li>
+		<li><a href='http://leehouse.github.com/homework/index.html'>Lee House</a></li>
+		<li><a href='http://jhoustova.github.com/homework/index.html'>Jarmila Houstova</a></li>
+		<li><a href='http://mclauer.github.com/homework/index.html'>Maria Lauer</a></li>
+		<li><a href='http://caseymcgee.github.com/homework/index.html'>Casey McGee</a></li>
+		<li><a href='http://katherinemclean.github.com/homework/index.html'>Katherine McLean</a></li>
+		<li><a href='http://jrraichek.github.com/homework/index.html'>Jennifer Raichek</a></li>
+		<li><a href='http://chrisskinner.github.com/homework/index.html'>Christopher Skinner</a></li>
+		<li><a href='http://jenellevalencia.github.com/homework/index.html'>Jenelle Valencia</a></li>
+		<li><a href='http://youngshimgontijo.github.com/homework/index.html'>Youngshim Gontijo</a></li>
+		<li><a href='http://jaelee.github.com/homework/index.html'>Sukjae Lee</a></li>
+
+	</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Readings</h2>
+	<ul>
+		<li>
+			<h3>Duckett, Chapters 11, 12, 13, 14</h3>
+					</li>
+					<li>
+			            <h3><a href='http://coding.smashingmagazine.com/2009/10/05/mastering-css-coding-getting-started/'>Mastering CSS Coding: Getting Started</a>
+						</h3>
+					</li>
+					<li>
+			            <h3><a href='http://coding.smashingmagazine.com/2008/05/02/improving-code-readability-with-css-styleguides/'>Improving Code Readability With CSS Styleguides</a>
+						</h3>
+					</li>
+					<li>
+			            <h3><a href='http://www.alistapart.com/articles/css3-bling-in-the-real-world/'>CSS3 Bling in the Real World</a>
+						</h3>
+		</li>
+	</ul>		
+</article>
+
+
+<article class='slide slide-accent'>
+		<h1>Let's Talk Design</h1>
+</article>
+
+
+
+<article class='slide slide-list'>
+<h1>A few basics...</h1>
+<ul>
+	<li class="slide">
+		<h3>No Defaults - override the defaults or your site will look like it’s from 1994</h3>
+	</li>
+	<li class="slide">
+		<h3>Differentiation - different parts should look different</h3>
+	</li>
+	<li class="slide">
+		<h3>Grouping - alike parts should be close together</h3>
+	</li>
+	<li class="slide">
+		<h3>Whitespace - use it. Than add more.</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>Hierarchy</h1>
+</article>
+
+
+<article class='slide slide-statement'>
+	<h1>Decide what element is most important on your page and work down from there</h1>
+</article>
+
+<article class="slide slide-image">
+	<img src='images/mailchimp.png'/>
+</article>
+
+<article class="slide slide-image">
+	<img src='images/mailchimp2.png'/>
+</article>
+
+<article class='slide slide-statment'>
+	<h2><br/>Only 1 element can be the most important,<br/> it's your job to make that happen<br/><a href="http://yvettesbridalformal.com/">remember this?</a></h2>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>Tips &amp; Tricks</h1>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>If you blur your focus what do you see? Is it the most most important?</h1>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/apple2.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/apple.png'/>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>make sure your action text <em>(or call to action)</em> is clear and obvious</h1>
+</article>	
+
+<article  style='background-image:url(images/sky.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.blueskyresumes.com/">Blue Sky Resumes</a></h1>
+</div></div>
+</article>
+
+	
+<article class='slide slide-subhead'>
+	<h1>create contrast using size</h1> <p>more important things bigger, less important smaller</p>
+</article>	
+
+
+
+<article  style='background-image:url(images/monster.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://designingmonsters.com/">Designing Monsters</a></h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/bubbly.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://labubbly.com//">La Bubbly</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/cmornings.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.creativemornings.com/">Creative Mornings</a></h1>
+</div></div>
+</article>
+
+
+<article class='slide slide-statement'>
+	<h1>use whitespace to group content into cohesive sections</h1>
+</article>
+
+<article  style='background-image:url(images/snowden.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.snowdenindustries.com/">Snowden Industries</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/black.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://blackestate.co.nz/">Black Estate</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/flipboard.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://flipboard.com//">FlipBoard</a></h1>
+</div></div>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>Layout</h1>
+</article>
+
+<article class='slide slide-list'>
+<h1>A few basics...</h1>
+<ul>
+	<li class="slide">
+		<h3>Use a grid (we will get to this in a few minutes)</h3>
+	</li>
+	<li class="slide">
+		<h3>Consider scan-ability</h3>
+	</li>
+	<li class="slide">
+		<h3>Give visual breaks (whitespace)</h3>
+	</li>
+	<li class="slide">
+		<h3>group/chunk information together</h3>
+	</li>
+	<li class="slide">
+		<h3>use alignment and grids to create sections</h3>
+	</li>
+</ul>
+</article>
+
+
+
+<article  style='background-image:url(images/groupon.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.groupon.com/subscriptions/new?division_p=boston">Groupon</a></h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/dripping.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="https://www.drippinginfat.com/">Dripping in Fat</a></h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/darwin.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.dnadarwin.org/">DNA to Darwin</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/zerply.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.zerply.com/">Zerply</a></h1>
+</div></div>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>design your navigation</h1>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>follow user expectations/standards</h1>
+</article>
+
+<article  style='background-image:url(images/listapart.jpg);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.alistapart.com/">A List Apart</a></h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/shared.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://collaborativefund.com/">Collaborative Fund</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/collision.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://collisionlabs.com/">Collision Labs</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/marie.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://mariecatribs.com/">Marie Catribs</a></h1>
+</div></div>
+</article>
+
+
+<article class='slide slide-statement'>
+	<h1>assign clean, clear, simple labels that are easy to read, scan and see</h1>
+</article>
+
+<article  style='background-image:url(images/brandconf.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.underconsideration.com/brandnewconference/">Brand New Conference</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/legwork.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://2009.legworkstudio.com//">Leg Work Studio</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/brain.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://brooklynbrainery.com/">Brooklyn Brainery</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/method.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://methoddesignlab.com/">Method Design Lab</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/webshop.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.lawebshop.ca/">La Web Shop</a></h1>
+</div></div>
+</article>
+
+
+<article class='slide slide-statement'>
+	<h1>highlight the visitors current location</h1>
+</article>
+
+<article  style='background-image:url(images/shelf.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://demo.thethemefoundry.com/shelf/">Shelf - Theme Foundry</a></h1>
+</div></div>
+</article>
+
+
+<article  style='background-image:url(images/bonlook.png);' class='slide slide-background-content-footer'>
+<div class="background-padding"><div class="background-wrapper">
+<h1><a href="http://www.bonlook.com/">BonLook</a></h1>
+</div></div>
+</article>
+
+
+<article class='slide slide-statement'>
+	<h1>give feedback in sub-levels so the users know their location and how to get back</h1>
+</article>
+<article class='slide slide-statement'>
+	<h1>make it easy to see how much information the site has and how deep each level goes</h1>
+</article>
+
+<article class='slide slide-statement'>
+	<h1><a href="https://www.google.com/">in-class search</a></h1>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>Color &amp; Graphics</h1>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>Color Basics</h1>
+</article>
+
+<article class='slide slide-image'>
+<h1><img src="images/primary.png" class='top-image'/><br/>Primary Colors</h1>
+<p class='slide'>Red, yellow and blue<br/>
+These are the base three colors that can't be mixed or formed by other colors.
+</p>
+</article>
+
+<article class='slide slide-image'>
+<h1><img src="images/secondary.png" class='top-image'/><br/>Secondary Colors</h1>
+<p class='slide'>Green, orange and purple<br/>
+These are the colors created by mixing the primary colors
+</p>
+</article>
+
+<article class='slide slide-image'>
+<h1><img src="images/tertiary.png" class='top-image'/><br/>Tertiary Colors</h1>
+<p class='slide'>Yellow-orange, red-orange, red-purple, blue-purple, blue-green and yellow-green<br/>
+These are the colors formed by mixing a primary and a secondary color
+</p>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>Color Combinations</h1>
+</article>
+
+<article class='slide slide-image'>
+<h1><img src="images/analogous.png" class='top-image'/><br/>Analagous</h1>
+<p class='slide'>Any three colors which are side by side on a 12 part color wheel. 
+</p>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/analogous2.png'/>
+</article>
+
+<article class='slide slide-image'>
+<h1><img src="images/complimentary.png" class='top-image'/><br/>Complimentary</h1>
+<p class='slide'>Complementary colors are any two colors which are directly opposite each other on the color wheel. These combinations create maximum contrast.
+</p>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/complimentary2.png'/>
+</article>
+
+
+<article class='slide slide-statement'>
+	<h1>Using Color</h1>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/emotions.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/ketch.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/shirt.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/helvetica.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/usable.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/beds.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/pixel.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/sofa.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/statement.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/tour.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/walk.png'/>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>Graphics</h1>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>put thought into your graphics</h1>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>every image and graphic should have a specific purpose or message - not just make the page look pretty or cool</h1>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/flightcard.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/nappi.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/climate.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/dripping.png'/>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>Tools</h1>
+</article>
+
+<article class='slide slide-subhead'>
+	<h1>Images on the Web</h1>
+</article>
+
+<article class='slide slide-list'>
+<h2>Know the Basics</h2>
+	<ul>
+		<li class="slide">
+			<h3>8bit vs 24bit</h3>
+		</li>
+		<li class="slide">
+			<h3>Compresed vs Uncompressed</h3>
+		</li>
+		<li class="slide">
+			<h3>Lossy vs Non-lossy</h3>
+		</li>
+		<li class="slide">
+			<h3>Transparency</h3>
+		</li>
+	</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Know your Formats</h2>
+	<ul>
+		<li class="slide">
+			<h3>GIF</h3>
+		</li>
+		<li class="slide">
+			<h3>JPG</h3>
+		</li>
+		<li class="slide">
+			<h3>PNG</h3>
+		</li>
+		<li class="slide">
+			<h3>SVG</h3>
+		</li>
+   		<li class="slide">
+   			<h3>ICO </h3>
+   		</li>
+	</ul>
+</article>
+
+<article class="slide slide-statement">
+	<h1><s>.tiff</s></h1>
+</article>
+
+<article class="slide slide-statement">
+	<h1><s>.psd</s></h1>
+</article>
+
+<article class="slide slide-statement">
+	<h1><s>.eps</s></h1>
+</article>
+
+<article class='slide slide-list'>
+<h2>gif</h2>
+	<ul>
+		<li class="slide">
+			<h3>non-lossy</h3>
+		</li>
+		<li class="slide">
+			<h3>8bit</h3>
+		</li>
+		<li class="slide">
+			<h3>1bit transparency</h3>
+		</li>
+		<li class="slide">
+			<h3>small</h3>
+		</li>
+   		<li class="slide">
+   			<h3>RLE </h3>
+   		</li>
+		<li class="slide">
+   			<h3>Can be <a href="http://dailydoseofcute.net/wp-content/uploads/bulldog-in-a-swing.gif">animated</a></h3>
+   		</li>
+	</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>jpg</h2>
+	<ul>
+		<li class="slide">
+			<h3>lossy</h3>
+		</li>
+		<li class="slide">
+			<h3>FFT-compression</h3>
+		</li>
+		<li class="slide">
+			<h3>24 bit</h3>
+		</li>
+	</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>png</h2>
+	<ul>
+		<li class="slide">
+			<h3>upgrading gif</h3>
+		</li>
+		<li class="slide">
+			<h3>24 & 8bit</h3>
+		</li>
+		<li class="slide">
+			<h3>24 bit supports "soft" transparency</h3>
+		</li>
+	</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>svg</h2>
+	<ul>
+		<li class="slide">
+			<h3>scalable vector graphics</h3>
+		</li>
+		<li class="slide">
+			<h3>good support only recently</h3>
+	</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>ico</h2>
+	<ul>
+		<li class="slide">
+			<h3>favicon (the only time you would use it)</h3>
+		</li>
+	</ul>
+</article>
+
+<article class='slide slide-subhead'>
+	<h2>Which Format?</h2>
+</article>
+
+<article class="slide slide-image">
+	<img src='images/mr-burns.gif'/>
+</article>
+	
+<article class="slide slide-image">
+	<img src='images/fatcat.jpg'/>
+</article>
+
+<article class="slide slide-image">
+	<img src='images/big-logo.png'/>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>So What do you use to design websites?</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h2>Lots of options</h2>
+	<ul>
+		<li><h3>Photoshop</h3></li>
+		<li><h3>Fireworks</h3></li>
+		<li><h3>InDesign</h3></li>
+		<li><h3>Illustrator</h3></li>
+		<li><h3>Muse</h3></li>
+		<li><h3>In the Browser?</h3></li>	
+	</ul>		
+</article>
+
+<article class='slide slide-accent'>
+		<h1>Let's Discuss</h1>
+</article>
+
+
+<article class='slide slide-list'>
+	<h2>Some Opinions</h2>
+	<ul>
+	<li><h3><a href="http://www.netmagazine.com/features/big-question-should-we-design-browser-start">Should We Design in the Browser?</a></h3></li>
+	<li><h3><a href="http://blog.teamtreehouse.com/responsive-web-design-in-the-browser-part-1-kill-photoshop">Kill Photoshop</a></h3></li>
+		<li><h3><a href="http://www.smashingmagazine.com/2011/01/17/productive-web-design-with-adobe-illustrator/">Productive Web Design in Illustrator</a></h3></li>
+			<li><h3><a href="http://upstatement.com/blog/2012/01/how-to-approach-a-responsive-design/">Responsive Design in InDesign</a></h3></li>
+				<li><h3><a href="http://veerle.duoh.com/design/article/tips_on_how_to_optimize_your_web_design_workflow">Working in photoshop</a></h3></li>	
+	</ul>
+</article>
+
+<article class='slide slide-subhead'>
+	<h1>So What should you do?</h1>
+</article>
+
+<article class='slide slide-subhead'>
+	<h1>There is no one right tool</h1>
+	<p>pick your tools based on each sites needs</p>
+</article>
+
+
+<article class='slide slide-subhead'>
+	<h1><a href="http://styletil.es/">Style Tiles are a great idea</a></h1>
+</article>
+
+
+
+
+<article class='slide slide-subhead'>
+	<h1>If you use photoshop EVER</h1>
+	<h3><a href="http://photoshopetiquette.com/">please read photoshopetiquette.com</a></h3>
+</article>	
+	
+
+
+
+<article class='slide slide-accent'>
+	<h1>Grids</h1>
+</article>
+
+<article class='slide slide-statement'>
+	<h1>"Well designed grid systems can make your designs not only more beautiful and legible, but more usable" - Mark Boulton</h1>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Grid Systems</h2>
+<ul>
+	<li class="slide">
+		<h3>Great for getting started</h3>
+	</li>
+	<li class="slide">
+		<h3>Easily create a visual hierarchy</h3>
+	</li>
+	<li class="slide">
+		<h3>Good at creating ﬂow throughout the page</h3>
+	</li>
+	<li class="slide">
+		<h3>Great for fixed and ﬂuid layouts</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>What is a grid made of?</h1>
+</article>
+
+	
+<article  style='background-image:url(images/grid.png);' class='slide slide-background-content'>
+<div class="background-padding"><div class="background-wrapper">
+<h1>Grid</h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/gutters.png);' class='slide slide-background-content'>
+<div class="background-padding"><div class="background-wrapper">
+<h1>Gutters</h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/margins.png);' class='slide slide-background-content'>
+<div class="background-padding"><div class="background-wrapper">
+<h1>Margins</h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/modules.png);' class='slide slide-background-content'>
+<div class="background-padding"><div class="background-wrapper">
+<h1>Modules</h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/columns.png);' class='slide slide-background-content'>
+<div class="background-padding"><div class="background-wrapper">
+<h1>Columns</h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/hanginglines.png);' class='slide slide-background-content'>
+<div class="background-padding"><div class="background-wrapper">
+<h1>Hanging Lines</h1>
+</div></div>
+</article>
+
+<article  style='background-image:url(images/fields.png);' class='slide slide-background-content'>
+<div class="background-padding"><div class="background-wrapper">
+<h1>Fields</h1>
+</div></div>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>How they work</h1>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/five.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/fivegrid.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/black.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/blackgrid.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/park.png'/>
+</article>
+
+<article class='slide slide-image'>
+		<img src='images/parkgrid.png'/>
+</article>
+
+<article class='slide slide-subhead'>
+<h1><a href='http://960.gs/'>960.gs</a></h1>
+<h3>Easy to design for, start with a template for Illustrator, Photoshop, etc.<br/>
+	Easy to Generate CSS for 12 or 16 columns</h3>
+</article>
+
+
+
+<article class='slide slide-subhead'>
+<h1><a href='http://960.gs/'>GridSet</a></h1>
+<h3>Very Flexible, provides you with great code &amp; support - costs $$</h3>
+</article>
+
+
+
+<article class='slide slide-subhead'>
+<h1><a href='http://semantic.gs/'>Semantic Grid</a></h1>
+<h3>Semantic Markup in a flexible grid - downside runs on LESS, SCSS, or Stylus (which you don't know yet) </h3>
+</article>
+
+
+<article class='slide slide-subhead'>
+<h1><a href='http://semantic.gs/'>Semantic Grid</a></h1>
+<h3>Semantic Markup in a flexible grid - downside runs on LESS, SCSS, or Stylus (which you don't know yet) </h3>
+</article>
+
+
+
+<article class='slide slide-subhead'>
+<h1><a href='http://cssgrid.net/'>cssgrid.net</a></h1>
+<h3>Fluid Grids, more challenging to design for but better results across different formants</h3>
+</article>
+
+<article class='slide slide-subhead'>
+<h2>Calculating Baselines</h2>
+<img src='images/baseline.png'/>
+<p>read this <a href='http://www.alistapart.com/articles/settingtypeontheweb'>article</a><br/>
+also check out <a href="http://baselinecss.com/">BaselineCSS</a></p>
+</article>
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+<h3 class='slide'>Reading</h3>
+	<ul class='slide'>	
+		<li>
+			<h3>Duckett, Chapters 11, 12, 13, 14</h3>
+		</li>
+		<li>
+            <h3><a href='http://www.alistapart.com/articles/art-direction-and-design/'>Art Direction and Design</a>
+			</h3>
+		</li>
+		<li>
+            <h3><a href='http://www.alistapart.com/articles/taking-the-guesswork-out-of-design/'>Taking the Guesswork Out of Design</a>
+			</h3>
+		</li>
+	</ul>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+				<h3>Finish Styling &amp; Layout of your Recipe card, Cats vs. Dogs, Llama Love & Robots</h3>				
+			</li>
+			<li>
+				<h3>Final Project Wireframes (home & interior pages) design Mockup (or StyleTiles)</h3>
+			</li>
+		</ul>	
+</article>
+
+
+
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
